@@ -139,8 +139,11 @@ function estaoSobrepostos(elementoA, elementoB) {
     const a = elementoA.getBoundingClientRect()
     const b = elementoB.getBoundingClientRect()
 
+    //lado direito de A maior que o lado esquerdo de B
     const horizontal = a.left + a.width >= b.left &&
         b.left + b.width >= a.left
+
+    //lado direito de B maior que o lado esquerdo de A
     const vertical = a.top + a.height >= b.top &&
         b.top + b.height >= a.top
     return horizontal && vertical
@@ -156,8 +159,8 @@ function colidiu(passaro, barreiras) {
                 estaoSobrepostos(passaro.elemento, inferior)
         }
     })
+    return colidiu
 }
-
 
 function FlappyBird() {
     let pontos = 0
